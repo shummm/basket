@@ -2,6 +2,7 @@ import axios from 'axios'
 
 const state = {
   items: [],
+  checked: [],
   product: {},
   quantity: 1,
   total: 0,
@@ -49,6 +50,11 @@ const actions = {
 
 // mutations
 const mutations = {
+
+  setCheckItem(state, payload) {
+    state.checked = payload
+  },
+
   getItemsFake(state, payload) {
     state.items = payload
   },
@@ -83,6 +89,7 @@ const mutations = {
         state.items = state.items.filter((item) => item.id !== id)
       });
     }
+    state.checked = []
   }
 }
 

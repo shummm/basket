@@ -14,8 +14,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "nuxt": "^1.0.0",
-    "vue-click-outside": "^1.0.7"
+    "nuxt": "^1.0.0"
   },
   "devDependencies": {
     "babel-eslint": "^9.0.0",
