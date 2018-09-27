@@ -38,7 +38,7 @@ const getters = {
 // actions
 const actions = {
   getItemsFake({commit}) {
-    return axios('http://localhost:3000/fake/api/api.json', {
+    return axios('http://localhost:3000/fake/api/data.json', {
       method: 'GET'
     })
       .then(data => {
@@ -83,7 +83,7 @@ const mutations = {
     })
   },
 
-  deleteItemsFake(state, payload) {
+  removeItems(state, payload) {
     if (payload.length > 0) {
       payload.forEach(id => {
         state.items = state.items.filter((item) => item.id !== id)
