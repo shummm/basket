@@ -37,14 +37,9 @@ const getters = {
 
 // actions
 const actions = {
-  getItemsFake({commit}) {
-    return axios('http://localhost:3000/fake/api/data.json', {
-      method: 'GET'
-    })
-      .then(data => {
-        commit('getItemsFake', data.data.result)
-      })
-      .catch(error => error)
+  async setItems({ commit, params }) {
+    let { data } = await axios.get('http://localhost:3000/fake/api/data.json')
+   commit("setItems", data.result);
   }
 }
 
@@ -55,7 +50,7 @@ const mutations = {
     state.checked = payload
   },
 
-  getItemsFake(state, payload) {
+  setItems(state, payload) {
     state.items = payload
   },
   setProduct(state, payload) {

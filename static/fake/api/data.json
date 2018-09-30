@@ -6,11 +6,11 @@
       "title": "WENGER Evolution",
       "quantity": 1,
       "description": "Нож складной WENGER Evolution ,\"Автобус\" ,13 функций, 85 мм.WEN",
-      "images": [
+      "images": 
         {
           "src": "/img/one.png"
         }
-      ]
+      
     },
     {
       "id": 1,
@@ -18,11 +18,11 @@
       "title": "WENGER Evolution",
       "quantity": 1,
       "description": "Рюкзак WENGER «NEO»",
-      "images": [
+      "images": 
         {
           "src": "/img/2.png"
         }
-      ]
+      
     },
     {
       "id": 2,
@@ -30,11 +30,11 @@
       "title": "WENGER Evolution",
       "quantity": 1,
       "description": "Перьевая ручка Waterman Hemisphere Essential, перо: нержавеющая",
-      "images": [
+      "images": 
         {
           "src": "/img/3.png"
         }
-      ]
+      
     }
   ],
   "id": 1

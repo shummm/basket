@@ -1,0 +1,96 @@
+{
+  "result": [
+    {
+      "id": 0,
+      "time":
+        {
+          "start": "31.01",
+          "end": "31.03"
+        },
+      "title": "Нож складной ий, 85 мм.WEN",
+      "subTitle": "Нож складной WENGE функций, 85 мм.WEN",
+      "text": "Нажать",
+      "images":
+        {
+          "src": "/img/promo/asd.jpg"
+        }
+      
+    },
+    {
+      "id": 1,
+      "time":
+        {
+          "start": "31.01",
+          "end": "31.03"
+        },
+      "title": "Нож склion ,\"Автобус\" ,13 функций, 85 мм.WEN",
+      "subTitle": "Нож складнойс\" ,13 функций, 85 мм.WEN",
+      "text": "Выбрать",
+      "images":
+        {
+          "src": "/img/promo/dwq.jpg"
+        }
+    },
+    {
+      "id": 2,
+      "time":
+        {
+          "start": "31.01",
+          "end": "31.03"
+        },
+      "title": "Нож складн\"Автобус\" ,13 функций, 85 мм.WEN",
+      "subTitle": "Нож складной WENGER Evolution, 85 мм.WEN",
+      "text": "Купить",
+      "images":
+        {
+          "src": "/img/promo/qwe.jpg"
+        }
+    },
+    {
+      "id": 3,
+      "time":
+        {
+          "start": "31.01",
+          "end": "31.03"
+        },
+      "title": "Нож склад\"Автобус\" ,13 функций, 85 мм.WEN",
+      "subTitle": "Нож складной WENGнкций, 85 мм.WEN",
+      "text": "Выбрать",
+      "images":
+        {
+          "src": "/img/promo/rge.jpg"
+        }
+    },
+    {
+      "id": 4,
+      "time":
+        {
+          "start": "31.01",
+          "end": "31.03"
+        },
+      "title": "Нож складной WE85 мм.WEN",
+      "subTitle": "Нож склций, 85 мм.WEN",
+      "text": "Купить",
+      "images":
+        {
+          "src": "/img/promo/zxc.jpg"
+        }
+    },
+    {
+      "id": 5,
+      "time":
+        {
+          "start": "31.01",
+          "end": "31.03"
+        },
+      "title": "Нож скла, 85 мм.WEN",
+      "subTitle": "Нож складной WENGER Evolution ,\"Автобм.WEN",
+      "text": "Выбрать",
+      "images":
+        {
+          "src": "/img/promo/xsw.jpg"
+        }
+    }
+  ],
+  "id": 1
+}

@@ -1,17 +1,16 @@
 <script>
-import Basket from '~/components/Basket/Basket'
+import axios from "axios";
+import Basket from "~/components/Basket/Basket";
 
 export default {
-    name: 'basketPage',
-    components: {
-        Basket
-    },
-    async asyncData({
-        store
-    }) {
-        await store.dispatch('basket/getItemsFake')
-    }
-}
+  name: "basketPage",
+  components: {
+    Basket
+  },
+   async fetch ({ store }) {
+    await store.dispatch('basket/setItems')
+  }
+};
 </script>
 
 <template>

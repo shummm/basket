@@ -104,6 +104,7 @@ a:hover {
   -ms-flex-direction: column;
   flex-direction: column;
   height: 100%;
+  overflow: hidden;
 }
 
 .title {
