@@ -27,8 +27,8 @@ export default {
     },
     showEditForm(item) {
       this.activeEditForm = item.id;
-      // this.$store.commit('basket/setProduct', item)
-      // this.$store.commit('basket/setQuantity', item.quantity)
+      this.$store.commit("basket/setProduct", item);
+      this.$store.commit("basket/setQuantity", item.quantity);
     }
   },
   computed: {
@@ -67,7 +67,7 @@ export default {
             <div class="basket__item--text">{{i+1}}</div>
         </div>
         <div class="basket__item basket__item--col2 border--dotted-y">
-            <img :src="item.images[0].src">
+            <img :src="item.images.src">
         </div>
             <div class="basket__item basket__item--col3 border--dotted-y">
                 <div class="basket__item--text p--l28">{{formatPrice(item.description)}}</div>
@@ -77,13 +77,11 @@ export default {
                 <span class="basket__item--text">x</span>
                 <input
             :value="item.quantity"
-
             @click.prevent.stop="showEditForm(item)"
-
             type="text"
             class="basket__item--input"/>
 
-                <basket-modal-edit :activeEditForm="activeEditForm" :itemId="item.id" @close="close" />
+                <basket-modal-edit v-if="item.id === activeEditForm" @close="close" />
 
                 <span class="basket__item--text">=</span>
                 <div class="basket__item--text">{{formatPrice(item.price * item.quantity)}} <span class="m--l5">&#8381;</span>

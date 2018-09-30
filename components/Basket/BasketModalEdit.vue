@@ -3,13 +3,7 @@ import formatPrice from "~/mixins/formatPrice";
 
 export default {
   name: "BasketModalEdit",
-  props: ['activeEditForm', 'itemId'],
   mixins: [formatPrice],
-  data() {
-    return {
-      
-    }
-  },
   mounted() {
     document.addEventListener("click", this.clickOut);
   },
@@ -51,15 +45,13 @@ export default {
 <template>
   <div 
   class="modal" 
-  ref="modal"
-  :class="{'modal-active': itemId === activeEditForm}"
   @click.stop="clickOut">
     <div class="modal__content">
       <div class="modal__header">
         <p class="modal__header-title">Изменить количество</p>
       </div>
       <div class="modal__body">
-        <div class="box-price__text">{{getProduct.price}}</div>
+        <div class="box-price__text">{{formatPrice(getProduct.price)}}</div>
         <span>x</span>
         <div class="box-price__input">
           <span
@@ -71,7 +63,7 @@ export default {
             class="input--price-hi">+</span>
         </div>
         <span>=</span>
-        <div class="box-price__text">{{getProduct.price * getQuantity}}</div>
+        <div class="box-price__text">{{formatPrice(getProduct.price * getQuantity)}}</div>
         <span>&#8381;</span>
       </div>
       <div class="modal__footer">
@@ -93,17 +85,12 @@ export default {
   position: absolute;
   width: 320px;
   height: 134px;
-  display: none;
   top: 50px;
   left: 10px;
   background: white;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
   padding: 20px 26px;
   z-index: 22;
-}
-
-.modal-active {
-  display: block;
 }
 
 .modal__content {

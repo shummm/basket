@@ -3,6 +3,9 @@ import Slider from "~/components/Common/SliderPromo.vue";
 export default {
   components: {
     Slider
+  },
+  async fetch({store}) {
+      await store.dispatch('slider/setItems')
   }
 };
 </script>
@@ -30,5 +33,5 @@ export default {
     font-weight: normal;
     color: #0a7eb5;
     font-size: 24px;
-} 
+}
 </style>

@@ -17,9 +17,9 @@ export default {
 
     methods: {
         removeItem() {
-            this.$store.commit('basket/deleteItemsFake', this.getCheckedItem)
+            this.$store.commit('basket/removeItems', this.getCheckedItem)
         },
-       
+
     },
     computed: {
         getItems() {
@@ -42,57 +42,44 @@ export default {
 </script>
 
 <template>
-<div class="page">
-    <div class="title">
-        <h2 class="text text--title">Корзина</h2>
-    </div>
-    <div class="basket">
-
-        <div class="basket__inner basket__inner--headline">
-            <div class="basket__item">
-                <div class="basket__item--text">
-                    Выделелно
-                    <span class="basket__item--text-b">
+<div class="basket">
+    <div class="basket__inner basket__inner--headline">
+        <div class="basket__item">
+            <div class="basket__item--text">
+                Выделелно
+                <span class="basket__item--text-b">
                         {{getCheckedItem.length}}
                         </span>
-                </div>
-                <div class="basket__item--text">
-                    <span class="basket__item--img" @click="removeItem">
+            </div>
+            <div class="basket__item--text">
+                <span class="basket__item--img" @click="removeItem">
               <img src="~/assets/img/Close _ Delete.png">
               </span>
-                    Удалить отмеченные
-                </div>
+                Удалить отмеченные
             </div>
         </div>
-        <basket-item  />
-        <div class="b--b1gray"></div>
-        <div class="footer__basket">
-            <div class="footer__basket-text">
-                <p class="box__text-gr14">Промежуточный итог по корзине:</p>
-                <span class="box__text text--gr18-b">{{formatPrice(getTotal)}} &#8381;</span>
-            </div>
-            <div class="footer__basket-text">
-                <p class="box__text-gr14">В том числе НДС: </p>
-                <span class="box__text text--gr18-b">{{formatPrice(getTax)}} &#8381;</span>
-            </div>
-            <div class="border--dotted-x "></div>
-            <div class="footer__basket-text">
-                <p class="box__text-bl14">ИТОГО:</p>
-                <span class="box__text box__text-bl24">{{formatPrice(getFinalPrice)}} &#8381;</span>
-            </div>
+    </div>
+    <basket-item />
+    <div class="b--b1gray"></div>
+    <div class="footer__basket">
+        <div class="footer__basket-text">
+            <p class="box__text-gr14">Промежуточный итог по корзине:</p>
+            <span class="box__text text--gr18-b">{{formatPrice(getTotal)}} &#8381;</span>
+        </div>
+        <div class="footer__basket-text">
+            <p class="box__text-gr14">В том числе НДС: </p>
+            <span class="box__text text--gr18-b">{{formatPrice(getTax)}} &#8381;</span>
+        </div>
+        <div class="border--dotted-x "></div>
+        <div class="footer__basket-text">
+            <p class="box__text-bl14">ИТОГО:</p>
+            <span class="box__text box__text-bl24">{{formatPrice(getFinalPrice)}} &#8381;</span>
         </div>
     </div>
 </div>
 </template>
 
 <style scoped>
-.title {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    margin-bottom: 30px;
-}
-
 .input__custom {
     width: 20px;
     height: 20px;
@@ -116,11 +103,7 @@ export default {
     left: 2px;
 }
 
-.text--title {
-    font-weight: normal;
-    color: #0a7eb5;
-    font-size: 24px;
-}
+
 
 .basket__item--text {
     font-weight: normal;
