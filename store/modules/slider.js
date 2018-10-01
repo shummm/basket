@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from '@/plugins/axios'
 
 const state = {
   items: []
@@ -8,16 +8,16 @@ const state = {
 
 const getters = {
   getItems(state) {
-      return state.items
+    return state.items
   }
 }
 
 //actions
 
 const actions = {
-  async setItems({commit}) {
-    let { data } = await axios.get('http://localhost:3000/fake/api/promo.json')
-    commit("setItems", data.result);
+  async setItems({state, commit }) {
+    let { data } = await axios.get('/fake/api/promo.json')
+    commit("setItems", data.result)
   }
 }
 

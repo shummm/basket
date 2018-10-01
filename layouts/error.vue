@@ -32,7 +32,7 @@ export default {
       return (this.error && this.error.statusCode) || 500
     },
     message () {
-      return this.error.message || '<%= messages.client_error %>'
+      return this.error.message
     }
   }
 }

@@ -1,12 +1,12 @@
 <script>
 import Slider from "~/components/Common/SliderPromo.vue";
 export default {
-  components: {
-    Slider
-  },
-  async fetch({store}) {
-      await store.dispatch('slider/setItems')
-  }
+    components: {
+        Slider
+    },
+    async fetch({store}) {
+        await store.dispatch('slider/setItems')
+    }
 };
 </script>
 
@@ -16,7 +16,7 @@ export default {
         <h3 class="text text--title">Главная страница</h3>
     </header>
     <div class="content">
-        <slider />
+        <slider/>
     </div>
 </div>
 </template>
