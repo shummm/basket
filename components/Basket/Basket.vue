@@ -1,19 +1,28 @@
 <script>
 import BasketItem from './BasketItem'
 import formatPrice from '~/mixins/formatPrice'
+import asyncDataStatus from "@/mixins/asyncDataStatus";
+import AppSpinner from "@/components/Common/AppSpinner";
 
 export default {
     name: "Basket",
     components: {
-        BasketItem
+        BasketItem,
+        AppSpinner
     },
-    mixins: [formatPrice],
+    mixins: [formatPrice, asyncDataStatus],
     data() {
         return {
             items: 0,
             totalOrder: 0
         }
     },
+
+    created() {
+    this.$store
+      .dispatch("basket/setItems")
+      .then(() => this.asyncDataStatus_fetched());
+  },
 
     methods: {
         removeItem() {
@@ -42,39 +51,44 @@ export default {
 </script>
 
 <template>
-<div class="basket">
-    <div class="basket__inner basket__inner--headline">
-        <div class="basket__item">
-            <div class="basket__item--text">
-                Выделелно
-                <span class="basket__item--text-b">
+<div>
+    <div class="basket" v-if="asyncDataStatus_ready">
+        <div class="basket__inner basket__inner--headline">
+            <div class="basket__item">
+                <div class="basket__item--text">
+                    Выделелно
+                    <span class="basket__item--text-b">
                         {{getCheckedItem.length}}
                         </span>
-            </div>
-            <div class="basket__item--text">
-                <span class="basket__item--img" @click="removeItem">
+                </div>
+                <div class="basket__item--text">
+                    <span class="basket__item--img" @click="removeItem">
               <img src="~/assets/img/Close _ Delete.png">
               </span>
-                Удалить отмеченные
+                    Удалить отмеченные
+                </div>
+            </div>
+        </div>
+        <basket-item />
+        <div class="b--b1gray"></div>
+        <div class="footer__basket">
+            <div class="footer__basket-text">
+                <p class="box__text-gr14">Промежуточный итог по корзине:</p>
+                <span class="box__text text--gr18-b">{{formatPrice(getTotal)}} &#8381;</span>
+            </div>
+            <div class="footer__basket-text">
+                <p class="box__text-gr14">В том числе НДС: </p>
+                <span class="box__text text--gr18-b">{{formatPrice(getTax)}} &#8381;</span>
+            </div>
+            <div class="border--dotted-x "></div>
+            <div class="footer__basket-text">
+                <p class="box__text-bl14">ИТОГО:</p>
+                <span class="box__text box__text-bl24">{{formatPrice(getFinalPrice)}} &#8381;</span>
             </div>
         </div>
     </div>
-    <basket-item />
-    <div class="b--b1gray"></div>
-    <div class="footer__basket">
-        <div class="footer__basket-text">
-            <p class="box__text-gr14">Промежуточный итог по корзине:</p>
-            <span class="box__text text--gr18-b">{{formatPrice(getTotal)}} &#8381;</span>
-        </div>
-        <div class="footer__basket-text">
-            <p class="box__text-gr14">В том числе НДС: </p>
-            <span class="box__text text--gr18-b">{{formatPrice(getTax)}} &#8381;</span>
-        </div>
-        <div class="border--dotted-x "></div>
-        <div class="footer__basket-text">
-            <p class="box__text-bl14">ИТОГО:</p>
-            <span class="box__text box__text-bl24">{{formatPrice(getFinalPrice)}} &#8381;</span>
-        </div>
+    <div v-else>
+        <app-spinner />
     </div>
 </div>
 </template>
@@ -102,8 +116,6 @@ export default {
     top: 2px;
     left: 2px;
 }
-
-
 
 .basket__item--text {
     font-weight: normal;
@@ -244,9 +256,11 @@ export default {
 }
 
 .box__text {
+    display: flex;
     width: 150px;
-    text-align: right;
     padding-right: 16px;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .box__text-bl24 {

@@ -21,7 +21,10 @@ module.exports = {
   ** Build configuration
   */
 
-  
+  plugins: [
+    '~/plugins/clickOutside.js'
+  ],
+
   build: {
     vendor: [
       'axios'

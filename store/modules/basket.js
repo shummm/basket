@@ -37,7 +37,7 @@ const getters = {
 
 // actions
 const actions = {
-  async setItems({ commit, params }) {
+  async setItems({ commit }) {
     let { data } = await axios.get('/fake/api/data.json')
    commit("setItems", data.result);
   }

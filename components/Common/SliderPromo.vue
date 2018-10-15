@@ -5,7 +5,7 @@ import AppSpinner from "@/components/Common/AppSpinner";
 export default {
   name: "SliderPromo",
   components: {
-      AppSpinner
+    AppSpinner
   },
   data() {
     return {
@@ -69,9 +69,9 @@ export default {
 </script>
 
 <template>
-<div>
-<div class="slider" v-if="asyncDataStatus_ready">
-    <transition-group :name='slideMove'>
+  <div>
+    <div class="slider" v-if="asyncDataStatus_ready">
+      <transition-group :name='slideMove'>
         <img
     :key="activeItem"
         :src="getImage"
@@ -80,49 +80,48 @@ export default {
         </transition-group>
 
         <ul class="items slider-promo__items">
-            <transition-group name='slide-move-text'>
-                <li :key="activeItem" class="item slider-promo__item">
-                    <div class="slider-promo__item--desc">
-                        <span class="slider-promo__item--desc-time">{{getItems[activeItem].time.start}} - {{getItems[activeItem].time.end}}</span>
-                        <p class="slider-promo__item--title">
-                            {{getItems[activeItem].title}}
-                        </p>
-                        <p class="slider-promo__item--subtitle ">
-                            {{getItems[activeItem].subTitle}}
-                        </p>
-                        <a href="" class="slider-promo__item--link">{{getItems[activeItem].text}}</a>
-                    </div>
-                </li>
-            </transition-group>
+          <transition-group name='slide-move-text'>
+            <li :key="activeItem" class="item slider-promo__item">
+              <div class="slider-promo__item--desc">
+                <span class="slider-promo__item--desc-time">{{getItems[activeItem].time.start}} - {{getItems[activeItem].time.end}}</span>
+                <p class="slider-promo__item--title">
+                  {{getItems[activeItem].title}}
+                </p>
+                <p class="slider-promo__item--subtitle ">
+                  {{getItems[activeItem].subTitle}}
+                </p>
+                <a @click.prevent href="" class="slider-promo__item--link">{{getItems[activeItem].text}}</a>
+              </div>
+            </li>
+          </transition-group>
         </ul>
 
         <div class="slider-pagination">
-            <ul class="items slider-pagination__items">
-                <li v-for="(dot, i) in getItems.length" :key="i" @click="pickItem(i)" class="item slider-pagination__item">
-                    <svg
-                     :class="{'slider-pagination__item--svg-active': activeItem === i}"
-                     class="slider-pagination__item--svg"><use xlink:href="#dot"></use></svg>
-                </li>
-            </ul>
+          <ul class="items slider-pagination__items">
+            <li v-for="(dot, i) in getItems.length" :key="i" @click="pickItem(i)" class="item slider-pagination__item">
+              <svg :class="{'slider-pagination__item--svg-active': activeItem === i}" class="slider-pagination__item--svg">
+                <use xlink:href="#dot"></use>
+              </svg>
+            </li>
+          </ul>
         </div>
 
-        <a
-    @click.prevent="prevItem"
-     class="slider__button slider__button--prev">
-             <svg class="slider__button--prev-svg"><use xlink:href="#arrow-left"></use></svg>
-            </a>
-
-        <a
-    ref="next"
-    @click.prevent="nextItem"
-    class="slider__button slider__button--next ">
-    <svg class="slider__button--next-svg"><use xlink:href="#arrow-right"></use></svg>
+        <a @click.prevent="prevItem" class="slider__button slider__button--prev">
+          <svg class="slider__button--prev-svg">
+            <use xlink:href="#arrow-left"></use>
+          </svg>
         </a>
-</div>
-    <div v-else> 
-        <app-spinner/>
-     </div>
-</div>
+
+        <a ref="next" @click.prevent="nextItem" class="slider__button slider__button--next ">
+          <svg class="slider__button--next-svg">
+            <use xlink:href="#arrow-right"></use>
+          </svg>
+        </a>
+    </div>
+    <div v-else>
+      <app-spinner />
+    </div>
+  </div>
 </template>
 
 <style scoped>

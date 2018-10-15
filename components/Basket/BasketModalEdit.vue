@@ -4,18 +4,7 @@ import formatPrice from "~/mixins/formatPrice";
 export default {
   name: "BasketModalEdit",
   mixins: [formatPrice],
-  mounted() {
-    document.addEventListener("click", this.clickOut);
-  },
-  beforeDestroy() {
-    document.removeEventListener("click", this.clickOut);
-  },
   methods: {
-    clickOut(e) {
-      if (e.currentTarget.className !== "modal modal-active") {
-        this.$emit('close')
-      }
-    },
     close() {
       this.totalOrder = this.$store.getters["basket/getTotalOrder"];
       this.$emit('close')
@@ -38,14 +27,15 @@ export default {
     getQuantity() {
       return this.$store.getters["basket/getQuantity"];
     }
-  }
+  },
 };
 </script>
 
 <template>
   <div 
   class="modal" 
-  @click.stop="clickOut">
+  v-click-outside="close"
+  >
     <div class="modal__content">
       <div class="modal__header">
         <p class="modal__header-title">Изменить количество</p>
